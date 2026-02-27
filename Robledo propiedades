@@ -8,13 +8,11 @@ const propiedades = [
         precio: "$250.000",
         descripcion: "La propiedad se encuentra en exelente estado y destaca por su comodidad y funcionalidad. Incluye: PB: ingreso al living comedor y cocina, 1 toillete, un patio trasero con parrilla y un sector delantero para guardar autos. PA: 2 dormitorios con placard y 1 baño completo",
         ubicacion: "Los Hornos, calle 36 entre 140 y 141",
-        latitud: ,
-        longitud: ,
         tipo: "alquiler",
         disponible: true,
         dormitorios: 2,
         baños: 2,
-        metros: 160 m2,
+        metros: 160,
         garage: 1,
         imagenes: [
             "https://i.postimg.cc/dtzp0cfX/20f94167-ec34-4323-9df5-5d0ccf068a22.jpg"
@@ -26,8 +24,6 @@ const propiedades = [
         precio: "$180.000",
         descripcion: "Departamento de 2 dormitorios en pleno centro. Muy luminoso, con balcón y vista a la ciudad.",
         ubicacion: "Centro, Córdoba Capital",
-        latitud: -31.4201,
-        longitud: -64.1888,
         tipo: "venta",
         disponible: true,
         dormitorios: 2,
@@ -45,8 +41,6 @@ const propiedades = [
         precio: "$1.500/mes",
         descripcion: "Increíble casa de campo con pileta, quincho y jardín amplio. Perfecta para fin de semana.",
         ubicacion: "La Calera, Córdoba",
-        latitud: -31.4300,
-        longitud: -64.3200,
         tipo: "alquiler",
         disponible: true,
         dormitorios: 4,
@@ -64,10 +58,8 @@ const propiedades = [
         precio: "$320.000",
         descripcion: "Local comercial de 200m2 en esquina privilegiada. Ideal para comercio o inversión.",
         ubicacion: "Av. Colón 2500, Córdoba",
-        latitud: -31.4100,
-        longitud: -64.1900,
         tipo: "ambos",
-        disponible: false,
+        disponible: true,
         dormitorios: 0,
         baños: 2,
         metros: 200,
@@ -76,23 +68,21 @@ const propiedades = [
             "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800"
         ]
     },
-{
-    id: 5,
-    titulo: "Casa en barrio privado",
-    precio: "$450.000",
-    descripcion: "Casa de 4 dormitorios con pileta,quincho y seguridad 24hs.",
-    ubicacion: "Barrio Cerrado, Córdoba",
-    latitud: -31.4500,
-    longitud: -64.3000,
-    tipo: "venta",
-    disponible: true,
-    dormitorios: 4,
-    baños: 3,
-    metros: 300,
-    garage: 2,
-    imagenes: [
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
-    ]
-}
+    {
+        id: 5,
+        titulo: "Casa en barrio privado",
+        precio: "$450.000",
+        descripcion: "Casa de 4 dormitorios con pileta, quincho y seguridad 24hs.",
+        ubicacion: "Barrio Cerrado, Córdoba",
+        tipo: "venta",
+        disponible: true,
+        dormitorios: 4,
+        baños: 3,
+        metros: 300,
+        garage: 2,
+        imagenes: [
+            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+        ]
+    }
 ];
