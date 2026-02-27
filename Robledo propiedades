@@ -17,9 +17,7 @@ const propiedades = [
         metros: 160 m2,
         garage: 1,
         imagenes: [
-            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
-            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
-            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+            "https://postimg.cc/gallery/QH7P6p3",
         ]
     },
     {
