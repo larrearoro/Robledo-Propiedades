@@ -1,10 +1,3 @@
-<think>
-El usuario necesita que le envíe nuevamente el código del archivo index.html. Voy a enviárselo completo y bien formateado para que pueda copiarlo y pegarlo fácilmente.
-</think> 📋
-
-Copia todo este código y pégalo en tu archivo `index.html`:
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,7 +34,6 @@ Copia todo este código y pégalo en tu archivo `index.html`:
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </nav>
-                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </header>
@@ -78,22 +70,11 @@ Copia todo este código y pégalo en tu archivo `index.html`:
                             <option value="departamento">Departamento</option>
                             <option value="terreno">Terreno</option>
                             <option value="local">Local</option>
-                            <option value="ph">PH</option>
                         </select>
                     </div>
                     <div class="buscador-grupo">
                         <label>Ubicación</label>
                         <input type="text" id="buscar-ubicacion" placeholder="Ciudad, barrio...">
-                    </div>
-                    <div class="buscador-grupo">
-                        <label>Precio máximo</label>
-                        <select id="buscar-precio">
-                            <option value="todos">Sin límite</option>
-                            <option value="100000">Hasta $100.000</option>
-                            <option value="200000">Hasta $200.000</option>
-                            <option value="300000">Hasta $300.000</option>
-                            <option value="500000">Hasta $500.000</option>
-                        </select>
                     </div>
                     <button class="buscador-btn" onclick="filtrarPropiedades()">
                         <i class="fas fa-search"></i> Buscar
@@ -110,12 +91,10 @@ Copia todo este código y pégalo en tu archivo `index.html`:
                 <h2>Nuestras Propiedades</h2>
                 <p>Encontrá tu próximo hogar</p>
             </div>
-            <div id="propiedades-grid" class="propiedades-grid">
-                <!-- Las propiedades se cargan aquí con JavaScript -->
-            </div>
+            <div id="propiedades-grid" class="propiedades-grid"></div>
             <div id="sin-resultados" class="sin-resultados" style="display: none;">
                 <i class="fas fa-home"></i>
-                <p>No se encontraron propiedades con esos criterios</p>
+                <p>No se encontraron propiedades</p>
                 <button onclick="limpiarFiltros()" class="btn btn-primary">Limpiar filtros</button>
             </div>
         </div>
@@ -132,19 +111,16 @@ Copia todo este código y pégalo en tu archivo `index.html`:
                 <div class="contacto-card">
                     <i class="fab fa-whatsapp"></i>
                     <h3>WhatsApp</h3>
-                    <p>Escríbenos para consultas inmediatas</p>
                     <a href="https://wa.me/5493512345678" class="btn btn-primary">Enviar mensaje</a>
                 </div>
                 <div class="contacto-card">
                     <i class="fab fa-instagram"></i>
                     <h3>Instagram</h3>
-                    <p>Seguinos para ver nuevas propiedades</p>
                     <a href="https://instagram.com/robledopropiedades" class="btn btn-primary">Seguir</a>
                 </div>
                 <div class="contacto-card">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
-                    <p>contacto@robledopropiedades.com</p>
                     <a href="mailto:contacto@robledopropiedades.com" class="btn btn-primary">Enviar email</a>
                 </div>
             </div>
@@ -174,7 +150,7 @@ Copia todo este código y pégalo en tu archivo `index.html`:
     <div id="modal-galeria" class="modal">
         <div class="modal-contenido">
             <span class="modal-cerrar" onclick="cerrarModal('galeria')">&times;</span>
-            <img id="modal-imagen" src="" alt="Imagen de propiedad">
+            <img id="modal-imagen" src="" alt="Imagen">
             <div class="modal-navegacion modal-prev" onclick="imagenAnterior()"><i class="fas fa-chevron-left"></i></div>
             <div class="modal-navegacion modal-next" onclick="imagenSiguiente()"><i class="fas fa-chevron-right"></i></div>
             <div id="modal-miniaturas" class="galeria-miniaturas"></div>
@@ -197,12 +173,8 @@ Copia todo este código y pégalo en tu archivo `index.html`:
 
     <!-- BOTONES FLOTANTES -->
     <div class="contacto-flotante">
-        <a href="https://wa.me/5493512345678" class="btn-flotante whatsapp" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://instagram.com/robledopropiedades" class="btn-flotante instagram" title="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
+        <a href="https://wa.me/5493512345678" class="btn-flotante whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/robledopropiedades" class="btn-flotante instagram"><i class="fab fa-instagram"></i></a>
     </div>
 
     <script src="propiedades.js"></script>
@@ -211,40 +183,27 @@ Copia todo este código y pégalo en tu archivo `index.html`:
         let indiceImagenActual = 0;
         let propiedadActual = null;
 
-        // Cargar propiedades al inicio
         document.addEventListener('DOMContentLoaded', () => {
             filtrarPropiedades();
         });
 
-        // Función para filtrar propiedades
         function filtrarPropiedades() {
             const tipo = document.getElementById('buscar-tipo').value;
             const categoria = document.getElementById('buscar-categoria').value;
             const ubicacion = document.getElementById('buscar-ubicacion').value.toLowerCase();
-            const precioMax = document.getElementById('buscar-precio').value;
 
             propiedadesFiltradas = propiedades.filter(p => {
                 if (!p.disponible) return false;
-                
                 if (tipo !== 'todos' && p.tipo !== tipo && p.tipo !== 'ambos') return false;
-                
                 const tituloLower = p.titulo.toLowerCase();
                 if (categoria !== 'todos' && !tituloLower.includes(categoria)) return false;
-                
                 if (ubicacion && !p.ubicacion.toLowerCase().includes(ubicacion)) return false;
-                
-                if (precioMax !== 'todos') {
-                    const precioNum = parseInt(p.precio.replace(/[^0-9]/g, ''));
-                    if (precioNum > parseInt(precioMax)) return false;
-                }
-                
                 return true;
             });
 
             renderizarPropiedades();
         }
 
-        // Renderizar propiedades en el HTML
         function renderizarPropiedades() {
             const grid = document.getElementById('propiedades-grid');
             const sinResultados = document.getElementById('sin-resultados');
@@ -259,27 +218,8 @@ Copia todo este código y pégalo en tu archivo `index.html`:
             sinResultados.style.display = 'none';
 
             grid.innerHTML = propiedadesFiltradas.map(p => {
-                let estadoClass = '';
-                let estadoTexto = '';
-                
-                if (p.tipo === 'venta') {
-                    estadoClass = 'estado-venta';
-                    estadoTexto = 'Venta';
-                } else if (p.tipo === 'alquiler') {
-                    estadoClass = 'estado-alquiler';
-                    estadoTexto = 'Alquiler';
-                } else {
-                    estadoClass = 'estado-ambos';
-                    estadoTexto = 'Venta y Alquiler';
-                }
-
-                const caracteristicasHTML = `
-                    ${p.dormitorios > 0 ? `<span class="caracteristica"><i class="fas fa-bed"></i> ${p.dormitorios} dorm.</span>` : ''}
-                    ${p.baños > 0 ? `<span class="caracteristica"><i class="fas fa-bath"></i> ${p.baños} baños</span>` : ''}
-                    ${p.metros > 0 ? `<span class="caracteristica"><i class="fas fa-ruler-combined"></i> ${p.metros} m²</span>` : ''}
-                    ${p.garage > 0 ? `<span class="caracteristica"><i class="fas fa-car"></i> ${p.garage} garage</span>` : ''}
-                `;
-
+                let estadoClass = p.tipo === 'venta' ? 'estado-venta' : p.tipo === 'alquiler' ? 'estado-alquiler' : 'estado-ambos';
+                let estadoTexto = p.tipo === 'venta' ? 'Venta' : p.tipo === 'alquiler' ? 'Alquiler' : 'Venta y Alquiler';
                 const primeraImagen = p.imagenes && p.imagenes.length > 0 ? p.imagenes[0] : 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800';
 
                 return `
@@ -295,18 +235,20 @@ Copia todo este código y pégalo en tu archivo `index.html`:
                             <div class="propiedad-precio">${p.precio}</div>
                             <h3 class="propiedad-titulo">${p.titulo}</h3>
                             <div class="propiedad-ubicacion">
-                                <i class="fas fa-map-marker-alt"></i>
-                                ${p.ubicacion}
+                                <i class="fas fa-map-marker-alt"></i> ${p.ubicacion}
                             </div>
                             <button class="btn btn-outline" onclick="abrirMapa(${p.id})" style="margin-bottom: 10px; width: 100%;">
                                 <i class="fas fa-map"></i> Ver ubicación
                             </button>
                             <p class="propiedad-descripcion">${p.descripcion}</p>
                             <div class="propiedad-caracteristicas">
-                                ${caracteristicasHTML}
+                                ${p.dormitorios > 0 ? `<span class="caracteristica"><i class="fas fa-bed"></i> ${p.dormitorios} dorm.</span>` : ''}
+                                ${p.baños > 0 ? `<span class="caracteristica"><i class="fas fa-bath"></i> ${p.baños} baños</span>` : ''}
+                                ${p.metros > 0 ? `<span class="caracteristica"><i class="fas fa-ruler-combined"></i> ${p.metros} m²</span>` : ''}
+                                ${p.garage > 0 ? `<span class="caracteristica"><i class="fas fa-car"></i> ${p.garage} garage</span>` : ''}
                             </div>
                             <div class="propiedad-acciones">
-                                <a href="https://wa.me/5493512345678?text=Hola,%20me%20interesa%20la%20propiedad:%20${encodeURIComponent(p.titulo)}" class="btn btn-primary">
+                                <a href="https://wa.me/5493512345678?text=Hola, me interesa: ${encodeURIComponent(p.titulo)}" class="btn btn-primary">
                                     <i class="fab fa-whatsapp"></i> Contactar
                                 </a>
                             </div>
@@ -316,20 +258,16 @@ Copia todo este código y pégalo en tu archivo `index.html`:
             }).join('');
         }
 
-        // Limpiar filtros
         function limpiarFiltros() {
             document.getElementById('buscar-tipo').value = 'todos';
             document.getElementById('buscar-categoria').value = 'todos';
             document.getElementById('buscar-ubicacion').value = '';
-            document.getElementById('buscar-precio').value = 'todos';
             filtrarPropiedades();
         }
 
-        // Abrir galería
         function abrirGaleria(id) {
             propiedadActual = propiedades.find(p => p.id === id);
             if (!propiedadActual || !propiedadActual.imagenes) return;
-            
             indiceImagenActual = 0;
             actualizarImagenGaleria();
             document.getElementById('modal-galeria').classList.add('active');
@@ -337,37 +275,7 @@ Copia todo este código y pégalo en tu archivo `index.html`:
 
         function actualizarImagenGaleria() {
             if (!propiedadActual) return;
-            
             document.getElementById('modal-imagen').src = propiedadActual.imagenes[indiceImagenActual];
-            
-            // Miniaturas
             const miniaturas = document.getElementById('modal-miniaturas');
             miniaturas.innerHTML = propiedadActual.imagenes.map((img, idx) => 
-                `<img src="${img}" class="galeria-miniatura ${idx === indiceImagenActual ? 'active' : ''}" onclick="indiceImagenActual = ${idx}; actualizarImagenGaleria();">`
-            ).join('');
-        }
-
-        function imagenAnterior() {
-            if (!propiedadActual) return;
-            indiceImagenActual = (indiceImagenActual - 1 + propiedadActual.imagenes.length) % propiedadActual.imagenes.length;
-            actualizarImagenGaleria();
-        }
-
-        function imagenSiguiente() {
-            if (!propiedadActual) return;
-            indiceImagenActual = (indiceImagenActual + 1) % propiedadActual.imagenes.length;
-            actualizarImagenGaleria();
-        }
-
-        // Abrir mapa
-        function abrirMapa(id) {
-            const propiedad = propiedades.find(p => p.id === id);
-            if (!propiedad) return;
-            
-            document.getElementById('mapa-titulo').textContent = propiedad.ubicacion;
-            
-            const mapaUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d${propiedad.longitud}!3d${propiedad.latitud}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM1DCsDI1JzAwLjAiTiA2NMKwMTEnMjQuNCJX!5e0!3m2!1ses!2sar!4v1600000000000!5m2!1ses!2sar`;
-            
-            document.getElementById('mapa-iframe').src = mapaUrl;
-            document.getElementById('mapa-link').href = `https://www.google.com/maps/search/?api=1&query=${propiedad.latitud},${propiedad.longitud}`;
-            document.get
+                `<img src="${img}" class="galeria-miniatura ${idx === indice
