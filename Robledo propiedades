@@ -1,270 +1,81 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robledo Propiedades | Tu Inmobiliaria de Confianza</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
-    <!-- HEADER -->
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="contact-header">
-                    <a href="https://wa.me/5493512345678"><i class="fab fa-whatsapp"></i> +54 9 351 234-5678</a>
-                    <a href="https://instagram.com/robledopropiedades"><i class="fab fa-instagram"></i> @robledopropiedades</a>
-                </div>
-            </div>
-        </div>
-        <div class="header-main">
-            <div class="container">
-                <div class="logo">
-                    <div class="logo-icon"><i class="fas fa-home"></i></div>
-                    <div class="logo-text">
-                        <h1>Robledo Propiedades</h1>
-                        <span>Inmobiliaria Profesional</span>
-                    </div>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#inicio" class="active">Inicio</a></li>
-                        <li><a href="#propiedades">Propiedades</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </nav>
-                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-            </div>
-        </div>
-    </header>
+// ROBLEDO PROPIEDADES - ADMINISTRACIÓN
+// Solo edita este archivo para agregar/eliminar propiedades
 
-    <!-- HERO SECTION -->
-    <section id="inicio" class="hero">
-        <div class="hero-contenido">
-            <h1>Encuentra tu Propiedad Ideal</h1>
-            <p>Las mejores casas, departamentos y locales en venta y alquiler</p>
-            <a href="#propiedades" class="btn-hero">Ver Catálogo <i class="fas fa-arrow-down"></i></a>
-        </div>
-    </section>
-
-    <!-- BUSCADOR -->
-    <section class="buscador-seccion">
-        <div class="container">
-            <div class="buscador-box">
-                <h3 class="buscador-titulo"><i class="fas fa-search"></i> Buscador Inteligente</h3>
-                <div class="buscador-grid">
-                    <div class="buscador-grupo">
-                        <label>Tipo de operación</label>
-                        <select id="buscar-tipo">
-                            <option value="todos">Todos</option>
-                            <option value="venta">Venta</option>
-                            <option value="alquiler">Alquiler</option>
-                            <option value="ambos">Venta y Alquiler</option>
-                        </select>
-                    </div>
-                    <div class="buscador-grupo">
-                        <label>Tipo de propiedad</label>
-                        <select id="buscar-categoria">
-                            <option value="todos">Todas</option>
-                            <option value="casa">Casa</option>
-                            <option value="departamento">Departamento</option>
-                            <option value="terreno">Terreno</option>
-                            <option value="local">Local</option>
-                            <option value="ph">PH</option>
-                        </select>
-                    </div>
-                    <div class="buscador-grupo">
-                        <label>Ubicación</label>
-                        <input type="text" id="buscar-ubicacion" placeholder="Ciudad, barrio...">
-                    </div>
-                    <div class="buscador-grupo">
-                        <label>Precio máximo</label>
-                        <select id="buscar-precio">
-                            <option value="todos">Sin límite</option>
-                            <option value="100000">Hasta $100.000</option>
-                            <option value="200000">Hasta $200.000</option>
-                            <option value="300000">Hasta $300.000</option>
-                            <option value="500000">Hasta $500.000</option>
-                        </select>
-                    </div>
-                    <button class="buscador-btn" onclick="filtrarPropiedades()">
-                        <i class="fas fa-search"></i> Buscar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROPIEDADES -->
-    <section id="propiedades" class="propiedades-seccion">
-        <div class="container">
-            <div class="seccion-titulo">
-                <h2>Nuestras Propiedades</h2>
-                <p>Encontrá tu próximo hogar</p>
-            </div>
-            <div id="propiedades-grid" class="propiedades-grid">
-                <!-- Las propiedades se cargan aquí con JavaScript -->
-            </div>
-            <div id="sin-resultados" class="sin-resultados" style="display: none;">
-                <i class="fas fa-home"></i>
-                <p>No se encontraron propiedades con esos criterios</p>
-                <button onclick="limpiarFiltros()" class="btn btn-primary">Limpiar filtros</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="contacto-seccion">
-        <div class="container">
-            <div class="seccion-titulo">
-                <h2>Contacto</h2>
-                <p>Estamos para ayudarte</p>
-            </div>
-            <div class="contacto-grid">
-                <div class="contacto-card">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp</h3>
-                    <p>Escríbenos para consultas inmediatas</p>
-                    <a href="https://wa.me/5493512345678" class="btn btn-primary">Enviar mensaje</a>
-                </div>
-                <div class="contacto-card">
-                    <i class="fab fa-instagram"></i>
-                    <h3>Instagram</h3>
-                    <p>Seguinos para ver nuevas propiedades</p>
-                    <a href="https://instagram.com/robledopropiedades" class="btn btn-primary">Seguir</a>
-                </div>
-                <div class="contacto-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>contacto@robledopropiedades.com</p>
-                    <a href="mailto:contacto@robledopropiedades.com" class="btn btn-primary">Enviar email</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-contenido">
-                <div class="footer-logo">
-                    <h3>Robledo Propiedades</h3>
-                    <p>Tu inmobiliaria de confianza</p>
-                </div>
-                <div class="footer-redes">
-                    <a href="https://wa.me/5493512345678"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/robledopropiedades"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-copy">
-                <p>&copy; 2025 Robledo Propiedades. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODAL GALERÍA -->
-    <div id="modal-galeria" class="modal">
-        <div class="modal-contenido">
-            <span class="modal-cerrar" onclick="cerrarModal('galeria')">&times;</span>
-            <img id="modal-imagen" src="" alt="Imagen de propiedad">
-            <div class="modal-navegacion modal-prev" onclick="imagenAnterior()"><i class="fas fa-chevron-left"></i></div>
-            <div class="modal-navegacion modal-next" onclick="imagenSiguiente()"><i class="fas fa-chevron-right"></i></div>
-            <div id="modal-miniaturas" class="galeria-miniaturas"></div>
-        </div>
-    </div>
-
-    <!-- MODAL MAPA -->
-    <div id="modal-mapa" class="modal modal-mapa">
-        <div class="modal-contenido">
-            <span class="modal-cerrar" onclick="cerrarModal('mapa')">&times;</span>
-            <h3 id="mapa-titulo">Ubicación</h3>
-            <div id="mapa-contenedor" class="mapa-contenedor">
-                <!-- El mapa se carga aquí -->
-            </div>
-            <a id="mapa-link" href="" target="_blank" class="btn btn-primary" style="margin-top: 15px; display: inline-block;">
-                <i class="fas fa-external-link-alt"></i> Abrir en Google Maps
-            </a>
-        </div>
-    </div>
-
-    <!-- BOTONES FLOTANTES -->
-    <div class="contacto-flotante">
-        <a href="https://wa.me/5493512345678" class="btn-flotante whatsapp" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://instagram.com/robledopropiedades" class="btn-flotante instagram" title="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
-
-    <script src="propiedades.js"></script>
-    <script>
-        let propiedadesFiltradas = [...propiedades];
-        let indiceImagenActual = 0;
-        let propiedadActual = null;
-
-        // Cargar propiedades al inicio
-        document.addEventListener('DOMContentLoaded', () => {
-            filtrarPropiedades();
-        });
-
-        // Función para filtrar propiedades
-        function filtrarPropiedades() {
-            const tipo = document.getElementById('buscar-tipo').value;
-            const categoria = document.getElementById('buscar-categoria').value;
-            const ubicacion = document.getElementById('buscar-ubicacion').value.toLowerCase();
-            const precioMax = document.getElementById('buscar-precio').value;
-
-            propiedadesFiltradas = propiedades.filter(p => {
-                if (!p.disponible) return false;
-                
-                if (tipo !== 'todos' && p.tipo !== tipo && p.tipo !== 'ambos') return false;
-                
-                const tituloLower = p.titulo.toLowerCase();
-                if (categoria !== 'todos' && !tituloLower.includes(categoria)) return false;
-                
-                if (ubicacion && !p.ubicacion.toLowerCase().includes(ubicacion)) return false;
-                
-                if (precioMax !== 'todos') {
-                    const precioNum = parseInt(p.precio.replace(/[^0-9]/g, ''));
-                    if (precioNum > parseInt(precioMax)) return false;
-                }
-                
-                return true;
-            });
-
-            renderizarPropiedades();
-        }
-
-        // Renderizar propiedades en el HTML
-        function renderizarPropiedades() {
-            const grid = document.getElementById('propiedades-grid');
-            const sinResultados = document.getElementById('sin-resultados');
-
-            if (propiedadesFiltradas.length === 0) {
-                grid.style.display = 'none';
-                sinResultados.style.display = 'block';
-                return;
-            }
-
-            grid.style.display = 'grid';
-            sinResultados.style.display = 'none';
-
-            grid.innerHTML = propiedadesFiltradas.map(p => {
-                let estadoClass = '';
-                let estadoTexto = '';
-                
-                if (p.tipo === 'venta') {
-                    estadoClass = 'estado-venta';
-                    estadoTexto = '🟢 Venta';
-                } else if (p.tipo === 'alquiler') {
-                    estadoClass = 'estado-alquiler';
-                    estadoTexto = '🟢 Alquiler';
-                } else {
-                    estadoClass = 'estado-ambos';
-                    estadoTexto = '🟢 Venta y Alquiler';
-                }
-
-                const caracteristicasHTML = `
-                    ${p.dormitorios > 0 ? `<span class="caracteristica"><i class="fas fa-bed"></i> ${p.dormitorios
+const propiedades = [
+    {
+        id: 1,
+        titulo: "Casa moderna en zona residencial",
+        precio: "$250.000",
+        descripcion: "Hermosa casa de 3 dormitorios con patio amplio, garage para 2 autos y acabados de primera calidad. Ideal para familia.",
+        ubicacion: "Barrio San Miguel, Córdoba",
+        latitud: -31.4201,
+        longitud: -64.1888,
+        tipo: "venta",
+        disponible: true,
+        dormitorios: 3,
+        baños: 2,
+        metros: 180,
+        garage: 2,
+        imagenes: [
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"
+        ]
+    },
+    {
+        id: 2,
+        titulo: "Departamento céntrico",
+        precio: "$180.000",
+        descripcion: "Departamento de 2 dormitorios en pleno centro. Muy luminoso, con balcón y vista a la ciudad.",
+        ubicacion: "Centro, Córdoba Capital",
+        latitud: -31.4201,
+        longitud: -64.1888,
+        tipo: "venta",
+        disponible: true,
+        dormitorios: 2,
+        baños: 1,
+        metros: 85,
+        garage: 1,
+        imagenes: [
+            "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+            "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=800"
+        ]
+    },
+    {
+        id: 3,
+        titulo: "Casa de campo con pileta",
+        precio: "$1.500/mes",
+        descripcion: "Increíble casa de campo con pileta, quincho y jardín amplio. Perfecta para fin de semana.",
+        ubicacion: "La Calera, Córdoba",
+        latitud: -31.4300,
+        longitud: -64.3200,
+        tipo: "alquiler",
+        disponible: true,
+        dormitorios: 4,
+        baños: 3,
+        metros: 250,
+        garage: 3,
+        imagenes: [
+            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+        ]
+    },
+    {
+        id: 4,
+        titulo: "Local comercial - Oportunidad",
+        precio: "$320.000",
+        descripcion: "Local comercial de 200m2 en esquina privilegiada. Ideal para comercio o inversión.",
+        ubicacion: "Av. Colón 2500, Córdoba",
+        latitud: -31.4100,
+        longitud: -64.1900,
+        tipo: "ambos",
+        disponible: false,
+        dormitorios: 0,
+        baños: 2,
+        metros: 200,
+        garage: 0,
+        imagenes: [
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800"
+        ]
+    }
+];
