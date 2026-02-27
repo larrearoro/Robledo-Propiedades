@@ -17,7 +17,7 @@ const propiedades = [
         metros: 160 m2,
         garage: 1,
         imagenes: [
-            "https://i.postimg.cc/dtzp0cfX/20f94167-ec34-4323-9df5-5d0ccf068a22.jpg",
+            "https://i.postimg.cc/dtzp0cfX/20f94167-ec34-4323-9df5-5d0ccf068a22.jpg"
         ]
     },
     {
@@ -75,5 +75,24 @@ const propiedades = [
         imagenes: [
             "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800"
         ]
-    }
+    },
+{
+    id: 5,
+    titulo: "Casa en barrio privado",
+    precio: "$450.000",
+    descripcion: "Casa de 4 dormitorios con pileta,quincho y seguridad 24hs.",
+    ubicacion: "Barrio Cerrado, Córdoba",
+    latitud: -31.4500,
+    longitud: -64.3000,
+    tipo: "venta",
+    disponible: true,
+    dormitorios: 4,
+    baños: 3,
+    metros: 300,
+    garage: 2,
+    imagenes: [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+    ]
+}
 ];
